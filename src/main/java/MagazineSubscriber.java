@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.concurrent.Flow;
 import java.util.logging.Logger;
 
@@ -7,6 +8,8 @@ public class MagazineSubscriber implements Flow.Subscriber<Integer>  {
 
     private final long sleepTime;
     private final String subscriberName;
+    private Flow.Subscription sub;
+    private ArrayList<Integer> magazines = new ArrayList<Integer>();
 
     /**
      * Construtor.
@@ -18,6 +21,7 @@ public class MagazineSubscriber implements Flow.Subscriber<Integer>  {
         this.subscriberName = subscriberName;
 
         // @TODO
+
         // Complete aqui com outras inicialiações de estado que seu objeto precisa manter para
         // atender aos requisitos do enunciado.
     }
@@ -31,6 +35,9 @@ public class MagazineSubscriber implements Flow.Subscriber<Integer>  {
      */
     public void onSubscribe(Flow.Subscription subscription) {
        // @TODO
+        System.out.println("Subscripted");
+        sub = subscription;
+        sub.request(1);
     }
 
     /**
@@ -45,6 +52,8 @@ public class MagazineSubscriber implements Flow.Subscriber<Integer>  {
      */
     public void onNext(Integer item) {
         // @TODO
+        System.out.println();
+
     }
 
     /**
